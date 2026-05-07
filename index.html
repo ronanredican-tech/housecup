@@ -26,7 +26,6 @@
     .sparkle {
       background-image:
         radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 2px);
-
       background-size: 14px 14px;
       animation: shimmer 4s linear infinite;
     }
@@ -34,6 +33,59 @@
     @keyframes shimmer {
       from { background-position: 0 0; }
       to { background-position: 30px -80px; }
+    }
+
+    .magic-burst {
+      animation: magicBurst 1.8s ease-out;
+    }
+
+    @keyframes magicBurst {
+      0% {
+        transform: scale(1);
+        filter: brightness(1);
+      }
+
+      35% {
+        transform: scale(1.12);
+        filter: brightness(1.8);
+      }
+
+      100% {
+        transform: scale(1);
+        filter: brightness(1);
+      }
+    }
+
+    .magic-flash::after {
+      content: "+";
+      position: absolute;
+      left: 50%;
+      top: 35%;
+      transform: translateX(-50%);
+      color: gold;
+      font-size: 4rem;
+      font-weight: 900;
+      text-shadow: 0 0 25px gold;
+      animation: floatPoints 1.8s ease-out forwards;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    @keyframes floatPoints {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 30px) scale(.6);
+      }
+
+      30% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1.2);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -90px) scale(1);
+      }
     }
   </style>
 </head>
@@ -56,7 +108,7 @@
     <div class="grid grid-cols-7 gap-8 w-full max-w-[1700px] items-end text-center">
 
       <!-- BRADÁN -->
-      <div class="house" data-house="Bradán" data-max="100">
+      <div class="house relative" data-house="Bradán" data-max="100">
 
         <img
           src="images/bradan.png"
@@ -89,7 +141,7 @@
       </div>
 
       <!-- BROC -->
-      <div class="house" data-house="Broc" data-max="100">
+      <div class="house relative" data-house="Broc" data-max="100">
 
         <img
           src="images/broc.png"
@@ -122,7 +174,7 @@
       </div>
 
       <!-- IOLAR -->
-      <div class="house" data-house="Iolar" data-max="100">
+      <div class="house relative" data-house="Iolar" data-max="100">
 
         <img
           src="images/iolar.png"
@@ -155,7 +207,7 @@
       </div>
 
       <!-- GIORRIA -->
-      <div class="house" data-house="Giorria" data-max="100">
+      <div class="house relative" data-house="Giorria" data-max="100">
 
         <img
           src="images/giorria.png"
@@ -188,7 +240,7 @@
       </div>
 
       <!-- CÚ FAOIL -->
-      <div class="house" data-house="Cú Faoil" data-max="100">
+      <div class="house relative" data-house="Cú Faoil" data-max="100">
 
         <img
           src="images/cu-faoil.png"
@@ -221,7 +273,7 @@
       </div>
 
       <!-- SIONNACH -->
-      <div class="house" data-house="Sionnach" data-max="100">
+      <div class="house relative" data-house="Sionnach" data-max="100">
 
         <img
           src="images/sionnach.png"
@@ -254,7 +306,7 @@
       </div>
 
       <!-- EILC -->
-      <div class="house" data-house="Eilc" data-max="100">
+      <div class="house relative" data-house="Eilc" data-max="100">
 
         <img
           src="images/eilc.png"
@@ -291,13 +343,17 @@
 </div>
 
 <script>
-
 const CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vT20L0oBN9KBmE6lxzRaCDKDGf69ViN4yVQeevVIJp3g3iLR1iR8pHCDfTKH3gExqIX8xtSPCtX__TT/pub?gid=1573990268&single=true&output=csv";
 
+let previousTotals = {};
+
 async function loadHouseTotals() {
 
-  const response = await fetch(CSV_URL);
+  const response = await fetch(
+    CSV_URL + "&cacheBust=" + Date.now()
+  );
+
   const csvText = await response.text();
 
   const rows = csvText.trim().split("\n").slice(1);
@@ -308,7 +364,9 @@ async function loadHouseTotals() {
 
     const [house, points] = row.split(",");
 
-    totals[house.trim()] = Number(points.trim()) || 0;
+    if (house && points !== undefined) {
+      totals[house.trim()] = Number(points.trim()) || 0;
+    }
 
   });
 
@@ -320,6 +378,8 @@ async function loadHouseTotals() {
 
     const points = totals[houseName] || 0;
 
+    const oldPoints = previousTotals[houseName] ?? points;
+
     const max = Number(house.dataset.max);
 
     const percent = Math.max(
@@ -328,21 +388,33 @@ async function loadHouseTotals() {
     );
 
     house.querySelectorAll(".fill").forEach((fill) => {
-
       fill.style.height = percent + "%";
-
     });
 
     house.querySelector(".score").textContent = points;
 
+    if (points > oldPoints) {
+
+      house.classList.remove("magic-burst", "magic-flash");
+
+      void house.offsetWidth;
+
+      house.classList.add("magic-burst", "magic-flash");
+
+      setTimeout(() => {
+        house.classList.remove("magic-burst", "magic-flash");
+      }, 1900);
+
+    }
+
   });
 
+  previousTotals = totals;
 }
 
 loadHouseTotals();
 
-setInterval(loadHouseTotals, 30000);
-
+setInterval(loadHouseTotals, 10000);
 </script>
 
 </body>
