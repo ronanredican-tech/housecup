@@ -16,7 +16,6 @@
           rgba(255,255,255,.02) 55%,
           rgba(255,255,255,.18)
         );
-
       box-shadow:
         inset 8px 0 14px rgba(255,255,255,.22),
         inset -10px 0 18px rgba(0,0,0,.55),
@@ -36,7 +35,7 @@
     }
 
     .magic-burst {
-      animation: magicBurst 1.8s ease-out;
+      animation: magicBurst 2s ease-out;
     }
 
     @keyframes magicBurst {
@@ -44,12 +43,10 @@
         transform: scale(1);
         filter: brightness(1);
       }
-
       35% {
-        transform: scale(1.12);
-        filter: brightness(1.8);
+        transform: scale(1.15);
+        filter: brightness(2);
       }
-
       100% {
         transform: scale(1);
         filter: brightness(1);
@@ -57,16 +54,19 @@
     }
 
     .magic-flash::after {
-      content: "+";
+      content: "+ POINTS";
       position: absolute;
       left: 50%;
-      top: 35%;
+      top: 34%;
       transform: translateX(-50%);
       color: gold;
-      font-size: 4rem;
+      font-size: 2.4rem;
       font-weight: 900;
-      text-shadow: 0 0 25px gold;
-      animation: floatPoints 1.8s ease-out forwards;
+      white-space: nowrap;
+      text-shadow:
+        0 0 15px gold,
+        0 0 35px rgba(255,215,0,.9);
+      animation: floatPoints 2s ease-out forwards;
       pointer-events: none;
       z-index: 100;
     }
@@ -76,15 +76,13 @@
         opacity: 0;
         transform: translate(-50%, 30px) scale(.6);
       }
-
-      30% {
+      25% {
         opacity: 1;
-        transform: translate(-50%, 0) scale(1.2);
+        transform: translate(-50%, 0) scale(1.15);
       }
-
       100% {
         opacity: 0;
-        transform: translate(-50%, -90px) scale(1);
+        transform: translate(-50%, -110px) scale(1);
       }
     }
   </style>
@@ -109,233 +107,100 @@
 
       <!-- BRADÁN -->
       <div class="house relative" data-house="Bradán" data-max="100">
-
-        <img
-          src="images/bradan.png"
-          class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(59,130,246,.8)]"
-        >
-
+        <img src="images/bradan.png" class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(59,130,246,.8)]">
         <div class="relative h-[430px] w-24 mx-auto">
-
           <div class="absolute inset-0 rounded-full border border-white/45 glass-vial"></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-blue-900 via-blue-500 to-cyan-200 shadow-[0_0_28px_rgba(59,130,246,.9)] transition-all duration-1000"
-          ></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"
-          ></div>
-
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-blue-900 via-blue-500 to-cyan-200 shadow-[0_0_28px_rgba(59,130,246,.9)] transition-all duration-1000"></div>
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"></div>
           <div class="absolute top-3 left-5 h-[340px] w-2 rounded-full bg-white/35 blur-sm"></div>
-
-          <div
-            class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"
-          ></div>
-
+          <div class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"></div>
         </div>
-
         <p class="score mt-8 text-4xl font-black text-yellow-300">0</p>
         <p class="text-2xl font-black text-yellow-300">Bradán</p>
-
       </div>
 
       <!-- BROC -->
       <div class="house relative" data-house="Broc" data-max="100">
-
-        <img
-          src="images/broc.png"
-          class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(209,213,219,.8)]"
-        >
-
+        <img src="images/broc.png" class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(209,213,219,.8)]">
         <div class="relative h-[430px] w-24 mx-auto">
-
           <div class="absolute inset-0 rounded-full border border-white/45 glass-vial"></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-zinc-800 via-zinc-400 to-white shadow-[0_0_28px_rgba(229,231,235,.8)] transition-all duration-1000"
-          ></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"
-          ></div>
-
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-zinc-800 via-zinc-400 to-white shadow-[0_0_28px_rgba(229,231,235,.8)] transition-all duration-1000"></div>
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"></div>
           <div class="absolute top-3 left-5 h-[340px] w-2 rounded-full bg-white/35 blur-sm"></div>
-
-          <div
-            class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"
-          ></div>
-
+          <div class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"></div>
         </div>
-
         <p class="score mt-8 text-4xl font-black text-yellow-300">0</p>
         <p class="text-2xl font-black text-yellow-300">Broc</p>
-
       </div>
 
       <!-- IOLAR -->
       <div class="house relative" data-house="Iolar" data-max="100">
-
-        <img
-          src="images/iolar.png"
-          class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(99,102,241,.9)]"
-        >
-
+        <img src="images/iolar.png" class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(99,102,241,.9)]">
         <div class="relative h-[430px] w-24 mx-auto">
-
           <div class="absolute inset-0 rounded-full border border-white/45 glass-vial"></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-indigo-950 via-indigo-600 to-violet-300 shadow-[0_0_28px_rgba(99,102,241,.9)] transition-all duration-1000"
-          ></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"
-          ></div>
-
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-indigo-950 via-indigo-600 to-violet-300 shadow-[0_0_28px_rgba(99,102,241,.9)] transition-all duration-1000"></div>
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"></div>
           <div class="absolute top-3 left-5 h-[340px] w-2 rounded-full bg-white/35 blur-sm"></div>
-
-          <div
-            class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"
-          ></div>
-
+          <div class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"></div>
         </div>
-
         <p class="score mt-8 text-4xl font-black text-yellow-300">0</p>
         <p class="text-2xl font-black text-yellow-300">Iolar</p>
-
       </div>
 
       <!-- GIORRIA -->
       <div class="house relative" data-house="Giorria" data-max="100">
-
-        <img
-          src="images/giorria.png"
-          class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(34,197,94,.9)]"
-        >
-
+        <img src="images/giorria.png" class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(34,197,94,.9)]">
         <div class="relative h-[430px] w-24 mx-auto">
-
           <div class="absolute inset-0 rounded-full border border-white/45 glass-vial"></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-green-950 via-green-500 to-lime-300 shadow-[0_0_28px_rgba(34,197,94,.9)] transition-all duration-1000"
-          ></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"
-          ></div>
-
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-green-950 via-green-500 to-lime-300 shadow-[0_0_28px_rgba(34,197,94,.9)] transition-all duration-1000"></div>
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"></div>
           <div class="absolute top-3 left-5 h-[340px] w-2 rounded-full bg-white/35 blur-sm"></div>
-
-          <div
-            class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"
-          ></div>
-
+          <div class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"></div>
         </div>
-
         <p class="score mt-8 text-4xl font-black text-yellow-300">0</p>
         <p class="text-2xl font-black text-yellow-300">Giorria</p>
-
       </div>
 
       <!-- CÚ FAOIL -->
       <div class="house relative" data-house="Cú Faoil" data-max="100">
-
-        <img
-          src="images/cu-faoil.png"
-          class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(226,232,240,.95)]"
-        >
-
+        <img src="images/cu-faoil.png" class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(226,232,240,.95)]">
         <div class="relative h-[430px] w-24 mx-auto">
-
           <div class="absolute inset-0 rounded-full border border-white/45 glass-vial"></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-slate-800 via-slate-300 to-white shadow-[0_0_28px_rgba(226,232,240,.9)] transition-all duration-1000"
-          ></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"
-          ></div>
-
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-slate-800 via-slate-300 to-white shadow-[0_0_28px_rgba(226,232,240,.9)] transition-all duration-1000"></div>
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"></div>
           <div class="absolute top-3 left-5 h-[340px] w-2 rounded-full bg-white/35 blur-sm"></div>
-
-          <div
-            class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"
-          ></div>
-
+          <div class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"></div>
         </div>
-
         <p class="score mt-8 text-4xl font-black text-yellow-300">0</p>
         <p class="text-2xl font-black text-yellow-300">Cú Faoil</p>
-
       </div>
 
       <!-- SIONNACH -->
       <div class="house relative" data-house="Sionnach" data-max="100">
-
-        <img
-          src="images/sionnach.png"
-          class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(239,68,68,.9)]"
-        >
-
+        <img src="images/sionnach.png" class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(239,68,68,.9)]">
         <div class="relative h-[430px] w-24 mx-auto">
-
           <div class="absolute inset-0 rounded-full border border-white/45 glass-vial"></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-red-950 via-red-600 to-orange-300 shadow-[0_0_28px_rgba(239,68,68,.9)] transition-all duration-1000"
-          ></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"
-          ></div>
-
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-red-950 via-red-600 to-orange-300 shadow-[0_0_28px_rgba(239,68,68,.9)] transition-all duration-1000"></div>
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"></div>
           <div class="absolute top-3 left-5 h-[340px] w-2 rounded-full bg-white/35 blur-sm"></div>
-
-          <div
-            class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"
-          ></div>
-
+          <div class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"></div>
         </div>
-
         <p class="score mt-8 text-4xl font-black text-yellow-300">0</p>
         <p class="text-2xl font-black text-yellow-300">Sionnach</p>
-
       </div>
 
       <!-- EILC -->
       <div class="house relative" data-house="Eilc" data-max="100">
-
-        <img
-          src="images/eilc.png"
-          class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(16,185,129,.9)]"
-        >
-
+        <img src="images/eilc.png" class="h-28 w-28 object-contain mx-auto mb-4 drop-shadow-[0_0_20px_rgba(16,185,129,.9)]">
         <div class="relative h-[430px] w-24 mx-auto">
-
           <div class="absolute inset-0 rounded-full border border-white/45 glass-vial"></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-emerald-950 via-emerald-500 to-teal-300 shadow-[0_0_28px_rgba(16,185,129,.9)] transition-all duration-1000"
-          ></div>
-
-          <div
-            class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"
-          ></div>
-
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full overflow-hidden bg-gradient-to-t from-emerald-950 via-emerald-500 to-teal-300 shadow-[0_0_28px_rgba(16,185,129,.9)] transition-all duration-1000"></div>
+          <div class="fill absolute bottom-4 left-3 right-3 rounded-b-full sparkle opacity-40"></div>
           <div class="absolute top-3 left-5 h-[340px] w-2 rounded-full bg-white/35 blur-sm"></div>
-
-          <div
-            class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"
-          ></div>
-
+          <div class="absolute -bottom-5 left-1/2 h-12 w-32 -translate-x-1/2 rounded-t-3xl border border-yellow-400/40 bg-gradient-to-b from-yellow-500 via-yellow-800 to-stone-950"></div>
         </div>
-
         <p class="score mt-8 text-4xl font-black text-yellow-300">0</p>
         <p class="text-2xl font-black text-yellow-300">Eilc</p>
-
       </div>
 
     </div>
@@ -347,74 +212,60 @@ const CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vT20L0oBN9KBmE6lxzRaCDKDGf69ViN4yVQeevVIJp3g3iLR1iR8pHCDfTKH3gExqIX8xtSPCtX__TT/pub?gid=1573990268&single=true&output=csv";
 
 let previousTotals = {};
+let firstLoad = true;
 
 async function loadHouseTotals() {
+  try {
+    const response = await fetch(CSV_URL + "&cacheBust=" + Date.now());
+    const csvText = await response.text();
 
-  const response = await fetch(
-    CSV_URL + "&cacheBust=" + Date.now()
-  );
+    const rows = csvText.trim().split("\n").slice(1);
+    const totals = {};
 
-  const csvText = await response.text();
-
-  const rows = csvText.trim().split("\n").slice(1);
-
-  const totals = {};
-
-  rows.forEach(row => {
-
-    const [house, points] = row.split(",");
-
-    if (house && points !== undefined) {
-      totals[house.trim()] = Number(points.trim()) || 0;
-    }
-
-  });
-
-  const houses = document.querySelectorAll(".house");
-
-  houses.forEach((house) => {
-
-    const houseName = house.dataset.house;
-
-    const points = totals[houseName] || 0;
-
-    const oldPoints = previousTotals[houseName] ?? points;
-
-    const max = Number(house.dataset.max);
-
-    const percent = Math.max(
-      6,
-      Math.min(points / max, 1) * 100
-    );
-
-    house.querySelectorAll(".fill").forEach((fill) => {
-      fill.style.height = percent + "%";
+    rows.forEach(row => {
+      const [house, points] = row.split(",");
+      if (house && points !== undefined) {
+        totals[house.trim()] = Number(points.trim()) || 0;
+      }
     });
 
-    house.querySelector(".score").textContent = points;
+    const houses = document.querySelectorAll(".house");
 
-    if (points > oldPoints) {
+    houses.forEach((house) => {
+      const houseName = house.dataset.house;
+      const points = totals[houseName] || 0;
+      const oldPoints = previousTotals[houseName] ?? points;
 
-      house.classList.remove("magic-burst", "magic-flash");
+      const max = Number(house.dataset.max);
+      const percent = Math.max(6, Math.min(points / max, 1) * 100);
 
-      void house.offsetWidth;
+      house.querySelectorAll(".fill").forEach((fill) => {
+        fill.style.height = percent + "%";
+      });
 
-      house.classList.add("magic-burst", "magic-flash");
+      house.querySelector(".score").textContent = points;
 
-      setTimeout(() => {
+      if (!firstLoad && points > oldPoints) {
         house.classList.remove("magic-burst", "magic-flash");
-      }, 1900);
+        void house.offsetWidth;
+        house.classList.add("magic-burst", "magic-flash");
 
-    }
+        setTimeout(() => {
+          house.classList.remove("magic-burst", "magic-flash");
+        }, 2000);
+      }
+    });
 
-  });
+    previousTotals = totals;
+    firstLoad = false;
 
-  previousTotals = totals;
+  } catch (error) {
+    console.error("Could not load house totals:", error);
+  }
 }
 
 loadHouseTotals();
-
-setInterval(loadHouseTotals, 10000);
+setInterval(loadHouseTotals, 3000);
 </script>
 
 </body>
