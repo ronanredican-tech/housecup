@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Upload Students</h2>
+<textarea id="data" rows="20" cols="60"></textarea><br><br>
+<button onclick="upload()">Upload to Firebase</button>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAZaFRg4ryop1UORpqzNsiZuEI-a2bB5E4",
+  authDomain: "mercy-mounthawk-ty-house-cup.firebaseapp.com",
+  projectId: "mercy-mounthawk-ty-house-cup",
+  storageBucket: "mercy-mounthawk-ty-house-cup.firebasestorage.app",
+  messagingSenderId: "514895432078",
+  appId: "1:514895432078:web:d4771e021fe11cb5743cdf"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.upload = async function() {
+  const lines = document.getElementById("data").value.trim().split("\n");
+
+  for (let line of lines) {
+    const [name, house, className] = line.split(",");
+
+    await addDoc(collection(db, "students"), {
+      name: name.trim(),
+      house: house.trim(),
+      className: className.trim()
+    });
+  }
+
+  alert("Done!");
+};
+</script>
+
+</body>
+</html>
